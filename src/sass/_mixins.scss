@@ -1,0 +1,17 @@
+@mixin btn {
+	margin-top: 1em;
+	padding: 0.3em 1em;
+	font-family: 'Francois One', sans-serif;
+	font-size: 2rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	background-color: rgb(39, 90, 148);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+	cursor: pointer;
+	&:hover {
+		background-color: rgb(26, 54, 87);
+	}
+}

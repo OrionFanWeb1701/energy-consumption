@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Łukasz Romanek">
+    <title>-- Oblicz zużycie energii --</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/css/style.min.css">
+    <script src="https://kit.fontawesome.com/b29ba5ca35.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="block-info">
+        <p class="block-info__rwd">aplikacja działa tylko na urządzeniach o rozdzielczośći <span>min 1200px</span></p>
+        <i class="fa-regular fa-face-frown"></i>
+    </div>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="header__title">oblicz zużycie energii</h1>
+        </header>
+        <div class="info">
+            <p class="info__text">
+                Program został napisany dla zaprzyjaźnionej spółdzielni mieszkaniowej w celu ułatwienia pomiarów,
+                prowadzenia dokumentacji i podziału na koszty mieszkaniowe i parkowe zużycia energii na osiedlach.
+            </p>
+        </div>
+        <main class="main">
+            <div class="main__inputs-area">
+                <div class="main__form">
+                    <div class="main__box-input">
+                        <label class="title">(Adres/numer klatki) i data: </label>
+                        <input type="text" class="address" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Zużycie energii z faktury (KWh): </label>
+                        <input type="number" class="kwh" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Faktura od... </label>
+                        <input type="date" class="invoice-from" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Faktura do... </label>
+                        <input type="date" class="invoice-to" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Stan licznika - aktualny (KWh): </label>
+                        <input type="number" class="numerator" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Data odczytu: </label>
+                        <input type="date" class="reading-date" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Stan licznika - poprzedni (KWh): </label>
+                        <input type="number" class="numerator-previous" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Data odczytu poprzedniego: </label>
+                        <input type="date" class="reading-date-previous" />
+                    </div>
+                    <div class="main__box-input">
+                        <label class="title">Kwota z faktury (zł.): </label>
+                        <input type="number" class="amount" />
+                    </div>
+                    <div class="main__error-box">
+                        <p class="error-info"></p>
+                    </div>
+                    <div class="main__button-score">
+                        <button class="score"><a href="#show-table">Oblicz</a></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="score-table">
+            <div class="score-table__title">
+                <h3>KALKULACJE ZUŻYCIA ENERGII ELEKTRYCZNEJ os. WSP</h3>
+                <h4 class="address-score"></h4>
+            </div>
+            <div class="score-table__box">
+                <table>
+                    <tr>
+                        <th>1</th>
+                        <td class="title-td">Zużycie energii z faktury</td>
+                        <td class="score-td" id="el1"></td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td class="title-td">Ilość dni z faktury</td>
+                        <td class="score-td" id="el2"></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td class="title-td">Stan licznika - aktualny</td>
+                        <td class="score-td" id="el3"></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td class="title-td">Data spisu: </td>
+                        <td class="score-td" id="el4"></td>
+                    </tr>
+                    <tr>
+                        <th>5</th>
+                        <td class="title-td">Stan licznika - poprzedni</td>
+                        <td class="score-td" id="el5"></td>
+                    </tr>
+                    <tr>
+                        <th>6</th>
+                        <td class="title-td">Data spisu poprzedniego: </td>
+                        <td class="score-td" id="el6"></td>
+                    </tr>
+                    <tr>
+                        <th>7</th>
+                        <td class="title-td">Zużycie energii z odczytów konserwatora</td>
+                        <td class="score-td" id="el7"></td>
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <td class="title-td">Ilość dni od ostatniego spisu</td>
+                        <td class="score-td" id="el8"></td>
+                    </tr>
+                    <tr>
+                        <th>9</th>
+                        <td class="title-td">Średnia zużycia energii w ciągu doby</td>
+                        <td id="el9"></td>
+                    </tr>
+                    <tr>
+                        <th>10</th>
+                        <td class="title-td">Zużycie parkowe</td>
+                        <td class="score-td" id="el10"></td>
+                    </tr>
+                    <tr>
+                        <th>11</th>
+                        <td class="title-td">Zużycie mieszkaniowe</td>
+                        <td class="score-td" id="el11"></td>
+                    </tr>
+                    <tr>
+                        <th>12</th>
+                        <td class="title-td">Kwota z faktury</td>
+                        <td class="score-td" id="el12"></td>
+                    </tr>
+                    <tr>
+                        <th>13</th>
+                        <td class="title-td">Cena za KWh</td>
+                        <td class="score-td" id="el13"></td>
+                    </tr>
+                    <tr>
+                        <th>14</th>
+                        <td class="title-td">Koszty parkowe</td>
+                        <td class="score-td" id="el14"></td>
+                    </tr>
+                    <tr>
+                        <th>15</th>
+                        <td class="title-td">Koszty mieszkaniowe</td>
+                        <td class="score-td" id="el15"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="score-table__button">
+                <button class="btn-print">Drukuj</button>
+            </div>
+        </div>
+        <footer class="footer">
+            <p class="copyright">&copy; 2022 DesOfStyle - Wszelkie prawa zastrzeżone</p>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </footer>
+    </div>
+    <script src="./dist/js/script.min.js"></script>
+</body>
+
+</html>
