@@ -8,4 +8,4 @@ Application created with:
 - CSS
 - JavaScript
 
-## [Run the project](https://orionfanweb1701.github.io/energy-consumption)
+[Run the project - energy-consumption](https://orionfanweb1701.github.io/energy-consumption)
