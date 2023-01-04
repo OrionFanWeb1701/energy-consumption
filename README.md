@@ -7,3 +7,5 @@ Application created with:
 - HTML
 - CSS
 - JavaScript
+
+## [Run the project](https://orionfanweb1701.github.io/energy-consumption)
