@@ -1,4 +1,4 @@
-# energy-consumption
+# Energy consumption
 Application to calculate energy consumption
 
 The program was written for a friendly housing cooperative in order to facilitate the measurement, record keeping and division into residential and park costs of energy consumption on housing estates.
